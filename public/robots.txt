@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://domaintoolkit.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /api/
+
+# Allow important pages
+Allow: /check
+Allow: /suggestions
+Allow: /estimation
+Allow: /combiner
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+
+# Crawl delay (optional)
+Crawl-delay: 1
