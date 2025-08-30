@@ -113,6 +113,16 @@ export const secureConsole = {
   apiError: (method, url, error) => {
     const sanitizedError = sanitizeObject(error);
     console.error(`❌ ${method} ${url} - Error:`, sanitizedError);
+  },
+  
+  // Special method for authentication errors
+  authError: (error) => {
+    if (error.response?.status === 401) {
+      console.warn('🔐 Authentication required - user not logged in');
+    } else {
+      const sanitizedError = sanitizeObject(error);
+      console.error('❌ Authentication error:', sanitizedError);
+    }
   }
 };
 

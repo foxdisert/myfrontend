@@ -28,9 +28,15 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Token expired or invalid, redirect to login
+      // Token expired or invalid, clear token but don't redirect automatically
+      // Let individual components handle the 401 error gracefully
       localStorage.removeItem('token')
-      window.location.href = '/login'
+      
+      // Only redirect if we're on a protected route
+      const protectedRoutes = ['/dashboard', '/admin']
+      if (protectedRoutes.some(route => window.location.pathname.startsWith(route))) {
+        window.location.href = '/login'
+      }
     }
     return Promise.reject(error)
   }
