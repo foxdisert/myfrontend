@@ -4,6 +4,10 @@ import { testBackendConnection, testApiEndpoint, runBackendTests } from '../util
 const BackendTester = () => {
   const [testResults, setTestResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [credentials, setCredentials] = useState({
+    email: '',
+    password: ''
+  });
 
   const runSingleTest = async (testName, testFunction) => {
     setIsLoading(true);
@@ -47,6 +51,36 @@ const BackendTester = () => {
     <div className="p-6 bg-white rounded-lg shadow-sm border border-gray-200">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">🔧 Backend Connection Tester</h2>
       
+      {/* Credential Input */}
+      <div className="mb-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+        <h3 className="text-lg font-medium text-gray-900 mb-3">🔐 Test Credentials</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input
+              type="email"
+              value={credentials.email}
+              onChange={(e) => setCredentials(prev => ({ ...prev, email: e.target.value }))}
+              placeholder="your-email@example.com"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input
+              type="password"
+              value={credentials.password}
+              onChange={(e) => setCredentials(prev => ({ ...prev, password: e.target.value }))}
+              placeholder="your-password"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+        </div>
+        <p className="text-xs text-gray-600 mt-2">
+          💡 Enter your actual login credentials to test the login endpoint properly
+        </p>
+      </div>
+      
       <div className="mb-6 space-y-3">
         <div className="flex flex-wrap gap-3">
           <button
@@ -58,8 +92,8 @@ const BackendTester = () => {
           </button>
           
           <button
-            onClick={() => runSingleTest('Auth Login', () => testApiEndpoint('/api/auth/login', 'POST', { email: 'test@example.com', password: 'test123' }))}
-            disabled={isLoading}
+            onClick={() => runSingleTest('Auth Login', () => testApiEndpoint('/api/auth/login', 'POST', credentials))}
+            disabled={isLoading || !credentials.email || !credentials.password}
             className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50"
           >
             Test Login Endpoint
