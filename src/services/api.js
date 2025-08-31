@@ -1,9 +1,10 @@
 import axios from 'axios'
+import { API_CONFIG } from '../config/api'
 
 // Create axios instance
 export const api = axios.create({
-  baseURL: 'https://my-backend-r7gr.onrender.com/api',
-  timeout: 300000, // 5 minutes for large CSV uploads
+  baseURL: `${API_CONFIG.BASE_URL}/api`,
+  timeout: API_CONFIG.TIMEOUT.UPLOAD, // 5 minutes for large CSV uploads
   headers: {
     'Content-Type': 'application/json',
   },

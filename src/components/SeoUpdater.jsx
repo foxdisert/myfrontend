@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { secureConsole } from '../utils/secureLogging';
+import { getApiUrl } from '../config/api';
 
 const SeoUpdater = () => {
   useEffect(() => {
     const updateSeoTags = async () => {
       try {
         // Fetch SEO settings from your backend
-        const response = await fetch('https://my-backend-r7gr.onrender.com/api/seo/meta-tags');
+        const response = await fetch(getApiUrl('/api/seo/meta-tags'));
         if (response.ok) {
           const seoSettings = await response.json();
           
