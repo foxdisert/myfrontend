@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { testBackendConnection, testApiEndpoint, runBackendTests } from '../utils/backendTest';
+import debugLogger from '../utils/debugLogger';
 
 const BackendTester = () => {
   const [testResults, setTestResults] = useState([]);
@@ -108,6 +109,34 @@ const BackendTester = () => {
           </button>
           
           <button
+            onClick={() => runSingleTest('Auth Profile', () => testApiEndpoint('/api/auth/profile'))}
+            disabled={isLoading}
+            className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-50"
+          >
+            Test Profile Endpoint
+          </button>
+          
+          <button
+            onClick={() => {
+              const token = localStorage.getItem('token');
+              if (token) {
+                runSingleTest('Profile with Token', () => testApiEndpoint('/api/auth/profile', 'GET', null, token));
+              } else {
+                setTestResults(prev => [...prev, { 
+                  name: 'Profile with Token', 
+                  success: false, 
+                  message: '❌ No token found in localStorage',
+                  timestamp: new Date().toISOString()
+                }]);
+              }
+            }}
+            disabled={isLoading}
+            className="px-4 py-2 bg-pink-600 text-white rounded-md hover:bg-pink-700 disabled:opacity-50"
+          >
+            Test Profile with Token
+          </button>
+          
+          <button
             onClick={runAllTests}
             disabled={isLoading}
             className="px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 disabled:opacity-50"
@@ -120,6 +149,18 @@ const BackendTester = () => {
             className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
           >
             Clear Results
+          </button>
+          
+          <button
+            onClick={() => setTestResults(debugLogger.getLogs().map(log => ({ 
+              name: log.message, 
+              success: !log.data?.error, 
+              message: log.data?.error ? `❌ ${log.message}` : `✅ ${log.message}`,
+              details: log
+            })))}
+            className="px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-700"
+          >
+            Show Debug Logs
           </button>
         </div>
       </div>

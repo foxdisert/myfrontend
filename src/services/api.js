@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { API_CONFIG } from '../config/api'
+import debugLogger from '../utils/debugLogger'
 
 // Create axios instance
 export const api = axios.create({
@@ -17,17 +18,33 @@ api.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
+    
+    // Log all API requests for debugging
+    debugLogger.logApiCall(config.method?.toUpperCase(), config.url, config.data);
+    
     return config
   },
   (error) => {
+    debugLogger.logError(error, 'Request interceptor error');
     return Promise.reject(error)
   }
 )
 
 // Response interceptor for error handling
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    // Log successful responses
+    debugLogger.log(`API Response: ${response.config.method?.toUpperCase()} ${response.config.url}`, {
+      status: response.status,
+      statusText: response.statusText,
+      data: response.data
+    });
+    return response;
+  },
   (error) => {
+    // Log all errors for debugging
+    debugLogger.logError(error, 'API Response Error');
+    
     if (error.response?.status === 401) {
       // Token expired or invalid, clear token but don't redirect automatically
       // Let individual components handle the 401 error gracefully

@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://domaintoolkit.com/sitemap.xml
+Sitemap: https://mydntk.com/sitemap.xml
 
 # Disallow admin and private areas
 Disallow: /admin

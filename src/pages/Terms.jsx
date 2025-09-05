@@ -193,8 +193,8 @@ const Terms = () => {
               <div className="bg-gray-50 p-4 rounded-lg mb-4">
                 <p className="text-gray-700 mb-2">
                   <strong>Email:</strong>{' '}
-                  <a href="mailto:legal@domaintoolkit.com" className="text-primary hover:text-primary-dark">
-                    legal@domaintoolkit.com
+                  <a href="mailto:legal@mydntk.com" className="text-primary hover:text-primary-dark">
+                    legal@mydntk.com
                   </a>
                 </p>
                 <p className="text-gray-700 mb-2">

@@ -6,67 +6,67 @@ const Sitemap = () => {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://domaintoolkit.com/</loc>
+    <loc>https://mydntk.com/</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/check</loc>
+    <loc>https://mydntk.com/check</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/suggestions</loc>
+    <loc>https://mydntk.com/suggestions</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/estimation</loc>
+    <loc>https://mydntk.com/estimation</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/combiner</loc>
+    <loc>https://mydntk.com/combiner</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/about</loc>
+    <loc>https://mydntk.com/about</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/contact</loc>
+    <loc>https://mydntk.com/contact</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/privacy</loc>
+    <loc>https://mydntk.com/privacy</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/terms</loc>
+    <loc>https://mydntk.com/terms</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/login</loc>
+    <loc>https://mydntk.com/login</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://domaintoolkit.com/register</loc>
+    <loc>https://mydntk.com/register</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>

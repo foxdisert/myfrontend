@@ -35,7 +35,7 @@
 ### **Step 1: Apply for AdSense**
 1. Go to [Google AdSense](https://www.google.com/adsense)
 2. Click "Get Started"
-3. Enter your website URL: `https://domaintoolkit.com`
+3. Enter your website URL: `https://mydntk.com`
 4. Fill out the application form
 5. Wait for approval (usually 1-4 weeks)
 
@@ -209,7 +209,7 @@ Add ad units to strategic locations:
 - [Policy Center](https://support.google.com/adsense/answer/48182)
 
 ### **Domain Toolkit Support:**
-- Email: support@domaintoolkit.com
+- Email: support@mydntk.com
 - Contact Form: `/contact`
 - Documentation: `/help`
 

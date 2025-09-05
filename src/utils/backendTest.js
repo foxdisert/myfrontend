@@ -57,7 +57,7 @@ export const testBackendConnection = async () => {
  * @param {object} body - Request body for POST/PUT requests
  * @returns {Promise<{success: boolean, message: string, details?: any}>}
  */
-export const testApiEndpoint = async (endpoint, method = 'GET', body = null) => {
+export const testApiEndpoint = async (endpoint, method = 'GET', body = null, token = null) => {
   try {
     const url = `${API_CONFIG.BASE_URL}${endpoint}`;
     const startTime = Date.now();
@@ -68,6 +68,11 @@ export const testApiEndpoint = async (endpoint, method = 'GET', body = null) => 
         'Content-Type': 'application/json',
       }
     };
+    
+    // Add authorization header if token provided
+    if (token) {
+      options.headers['Authorization'] = `Bearer ${token}`;
+    }
     
     if (body && (method === 'POST' || method === 'PUT')) {
       options.body = JSON.stringify(body);

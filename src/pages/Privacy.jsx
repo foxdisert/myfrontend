@@ -161,8 +161,8 @@ const Privacy = () => {
               <div className="bg-gray-50 p-4 rounded-lg mb-4">
                 <p className="text-gray-700 mb-2">
                   <strong>Email:</strong>{' '}
-                  <a href="mailto:privacy@domaintoolkit.com" className="text-primary hover:text-primary-dark">
-                    privacy@domaintoolkit.com
+                  <a href="mailto:privacy@mydntk.com" className="text-primary hover:text-primary-dark">
+                    privacy@mydntk.com
                   </a>
                 </p>
                 <p className="text-gray-700 mb-2">

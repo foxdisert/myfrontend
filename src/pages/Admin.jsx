@@ -144,7 +144,7 @@ const Admin = () => {
     siteDescription: 'Professional domain management and analysis tools',
     logo: '',
     favicon: '',
-    contactEmail: 'admin@domaintoolkit.com',
+    contactEmail: 'admin@mydntk.com',
     contactPhone: '+1 (555) 123-4567',
     socialLinks: {
       twitter: '',
@@ -194,7 +194,7 @@ const Admin = () => {
     smtpPort: 587,
     smtpUser: '',
     smtpPassword: '',
-    senderEmail: 'admin@domaintoolkit.com',
+    senderEmail: 'admin@mydntk.com',
     senderName: 'Domain Toolkit Admin',
     enableNotifications: true,
     enableAlerts: true
@@ -368,7 +368,7 @@ const Admin = () => {
         siteDescription: response.site_description || 'Professional domain management and analysis tools',
         logo: response.logo || '',
         favicon: response.favicon || '',
-        contactEmail: response.contact_email || 'admin@domaintoolkit.com',
+        contactEmail: response.contact_email || 'admin@mydntk.com',
         contactPhone: response.contact_phone || '+1 (555) 123-4567',
         socialLinks: response.social_links || {
           twitter: '',
