@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Search, Globe, BarChart3, Sparkles, CheckCircle, Clock, Star, ArrowRight, Zap, Shield, Users, Info } from 'lucide-react'
 import { domainAPI } from '../services/api'
 import { secureConsole } from '../utils/secureLogging'
+import AdBanner from '../components/AdBanner'
 
 const Home = () => {
   const [domain, setDomain] = useState('')
@@ -240,6 +241,17 @@ const Home = () => {
                 </div>
               )}
             </div>
+          </div>
+        </section>
+
+        {/* Ad Banner - Top */}
+        <section className="py-4 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AdBanner 
+              adSlot="1234567890" 
+              className="text-center"
+              style={{ minHeight: '90px' }}
+            />
           </div>
         </section>
 
