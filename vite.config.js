@@ -13,4 +13,5 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
   },
+  base: '/', // Ensure base path is correct for deployment
 })
