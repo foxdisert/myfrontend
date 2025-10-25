@@ -22,9 +22,6 @@ const Footer = () => {
       { name: 'Terms of Service', href: '/terms' },
     ],
     support: [
-      { name: 'Help Center', href: '/help' },
-      { name: 'API Documentation', href: '/api' },
-      { name: 'Status Page', href: '/status' },
       { name: 'Contact Support', href: '/contact' },
     ],
     legal: [

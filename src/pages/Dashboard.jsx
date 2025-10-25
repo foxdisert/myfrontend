@@ -16,7 +16,6 @@ import {
 import { useAuth } from '../contexts/AuthContext';
 import { userAPI } from '../services/api';
 import { secureConsole } from '../utils/secureLogging';
-import BackendTester from '../components/BackendTester';
 
 const Dashboard = () => {
   const { user, updateProfile } = useAuth();
@@ -242,10 +241,6 @@ const Dashboard = () => {
             </div>
           )}
 
-          {/* Backend Tester - Temporary for debugging */}
-          <div className="mb-8">
-            <BackendTester />
-          </div>
 
           {/* Tabs */}
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-8">
