@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import Layout from './components/Layout'
+import ProtectedRoute from './components/ProtectedRoute'
 import './utils/secureLogging' // Import secure logging to override console in production
 import Home from './pages/Home'
 import DomainChecker from './pages/DomainChecker'
@@ -38,8 +39,16 @@ function App() {
           <Route path="/sitemap" element={<Sitemap />} />
           
           {/* Protected Routes */}
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/admin" element={
+            <ProtectedRoute requireAdmin={true}>
+              <Admin />
+            </ProtectedRoute>
+          } />
           
           {/* 404 Route */}
           <Route path="*" element={<NotFound />} />
