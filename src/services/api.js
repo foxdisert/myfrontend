@@ -46,15 +46,24 @@ api.interceptors.response.use(
     debugLogger.logError(error, 'API Response Error');
     
     if (error.response?.status === 401) {
-      // Token expired or invalid, clear token but don't redirect automatically
-      // Let individual components handle the 401 error gracefully
-      localStorage.removeItem('token')
+      // Only clear token and redirect if it's an auth-related endpoint
+      const authEndpoints = ['/auth/profile', '/auth/login', '/auth/register']
+      const isAuthEndpoint = authEndpoints.some(endpoint => 
+        error.config?.url?.includes(endpoint)
+      )
       
-      // Only redirect if we're on a protected route
-      const protectedRoutes = ['/dashboard', '/admin']
-      if (protectedRoutes.some(route => window.location.pathname.startsWith(route))) {
-        window.location.href = '/login'
+      if (isAuthEndpoint) {
+        // Token expired or invalid for auth endpoints, clear token
+        localStorage.removeItem('token')
+        delete api.defaults.headers.common['Authorization']
+        
+        // Only redirect if we're on a protected route
+        const protectedRoutes = ['/dashboard', '/admin']
+        if (protectedRoutes.some(route => window.location.pathname.startsWith(route))) {
+          window.location.href = '/login'
+        }
       }
+      // For other endpoints (like /user/checks, /user/favorites), let components handle the error
     }
     return Promise.reject(error)
   }

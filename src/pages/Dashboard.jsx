@@ -68,7 +68,12 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Since this component is now protected, user will always be authenticated
-    fetchUserData();
+    // Add a small delay to ensure authentication is fully established
+    const timer = setTimeout(() => {
+      fetchUserData();
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, [user]);
 
   const fetchUserData = async () => {
@@ -76,21 +81,35 @@ const Dashboard = () => {
       setLoading(true);
       secureConsole.log('Fetching user data...');
       
-      const [checksResponse, favoritesResponse] = await Promise.all([
-        userAPI.getChecks(),
-        userAPI.getFavorites()
-      ]);
+      // Fetch data with individual error handling
+      let checks = [];
+      let favorites = [];
       
-      secureConsole.log('User data fetched successfully');
+      try {
+        const checksResponse = await userAPI.getChecks();
+        checks = checksResponse?.data || checksResponse || [];
+        secureConsole.log('Checks data fetched successfully');
+      } catch (error) {
+        secureConsole.log('Checks API failed, using sample data:', error.message);
+        checks = sampleChecks;
+      }
+      
+      try {
+        const favoritesResponse = await userAPI.getFavorites();
+        favorites = favoritesResponse?.data || favoritesResponse || [];
+        secureConsole.log('Favorites data fetched successfully');
+      } catch (error) {
+        secureConsole.log('Favorites API failed, using sample data:', error.message);
+        favorites = sampleFavorites;
+      }
       
       // Use real data if available, otherwise use sample data
-      const checks = checksResponse?.data || checksResponse || [];
-      const favorites = favoritesResponse?.data || favoritesResponse || [];
-      
       setRecentChecks(checks.length > 0 ? checks : sampleChecks);
       setFavorites(favorites.length > 0 ? favorites : sampleFavorites);
+      
+      secureConsole.log('User data loading completed');
     } catch (error) {
-      secureConsole.error('Error fetching user data:', error);
+      secureConsole.error('Error in fetchUserData:', error);
       // Use sample data on error to prevent crashes
       setRecentChecks(sampleChecks);
       setFavorites(sampleFavorites);
