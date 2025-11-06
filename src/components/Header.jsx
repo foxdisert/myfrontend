@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import { Menu, X, Search, Globe, BarChart3, Sparkles, User, LogOut, ChevronDown, Home, Shield, Settings } from 'lucide-react'
+import { Menu, X, Search, Globe, BarChart3, Sparkles, User, LogOut, ChevronDown, Home, Shield, Settings, BookOpen } from 'lucide-react'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -35,6 +35,7 @@ const Header = () => {
     { name: 'Suggestions', href: '/suggestions', icon: Sparkles },
     { name: 'Estimation', href: '/estimation', icon: BarChart3 },
     { name: 'Combiner', href: '/combiner', icon: Sparkles },
+    { name: 'Guides', href: '/guides', icon: BookOpen },
   ]
 
   const isActive = (path) => location.pathname === path
@@ -291,7 +292,7 @@ const Header = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 hover:scale-105 text-white hover:bg-white/20"
                   >
-                    <Crown className="h-5 w-5" />
+                    <Shield className="h-5 w-5" />
                     <span className="text-sm font-medium">Admin</span>
                   </Link>
                 )}

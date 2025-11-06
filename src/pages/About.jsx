@@ -21,17 +21,55 @@ const About = () => {
               <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
                 <Globe className="h-8 w-8 text-white" />
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Mission</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Story</h2>
             </div>
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Domain Toolkit was born from a simple observation: finding and managing domain names shouldn't be complicated. 
-                Whether you're a startup founder, a developer building the next big app, or a business owner expanding online, 
-                you deserve tools that make domain discovery and management effortless.
+                Domain Toolkit was born from a personal frustration. As entrepreneurs ourselves, we've spent countless hours searching for the perfect domain name, only to find that most tools were either too expensive, too slow, or simply didn't provide the insights we needed.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                In 2020, after yet another frustrating domain search experience, we decided to build something better. We wanted to create a platform that would make domain discovery not just easier, but actually enjoyable. A tool that would help entrepreneurs, developers, and businesses find their perfect online identity without the headaches.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                What started as a weekend project quickly grew into something more meaningful. We realized that finding the right domain name is often the first step in bringing an idea to life, and we wanted to make that step as smooth as possible. Today, Domain Toolkit serves thousands of users worldwide, helping them find, evaluate, and manage their domains with confidence.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                We believe that every great idea deserves a great domain name, and we're here to help you find it.
+                Our mission is simple: we believe that every great idea deserves a great domain name, and we're here to help you find it. Whether you're launching a startup, building a personal brand, or expanding your business online, we're committed to providing the tools and resources you need to succeed.
               </p>
+            </div>
+          </div>
+
+          {/* Values Section */}
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Our Core Values</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="mx-auto w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-4">
+                  <Heart className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">User-First Approach</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Every feature we build starts with understanding what our users actually need. We listen, we learn, and we iterate based on real feedback from people using our tools every day.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="mx-auto w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-4">
+                  <Shield className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Transparency & Trust</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  We believe in being upfront about how our tools work, what data we collect, and how we use it. Trust is earned through transparency, and we're committed to maintaining yours.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="mx-auto w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
+                  <Zap className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Continuous Innovation</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  The domain industry is constantly evolving, and so are we. We're always exploring new ways to make domain management easier, faster, and more insightful for our users.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -167,49 +205,61 @@ const About = () => {
           {/* Why Choose Us Section */}
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-16">
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Why Choose Domain Toolkit?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">For Businesses</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  We understand that your domain name is often the first impression customers have of your brand. That's why we've built tools specifically designed to help businesses find domains that not only represent their brand but also drive results.
+                </p>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    Find the perfect domain for your brand
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                    <span>Find the perfect domain that represents your brand identity</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    Professional domain valuation and appraisal
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                    <span>Professional domain valuation to make informed purchasing decisions</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    Secure and reliable domain management
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                    <span>Secure and reliable domain management tools you can trust</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    24/7 customer support
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                    <span>Comprehensive guides and resources to help you succeed</span>
                   </li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">For Developers</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  Built by developers, for developers. We know you need fast, reliable tools that integrate seamlessly into your workflow. Our platform is designed with technical users in mind, offering powerful features without unnecessary complexity.
+                </p>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    API access for integration
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                    <span>API access for seamless integration into your applications</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    Bulk domain checking capabilities
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                    <span>Bulk domain checking capabilities for efficient research</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    Developer-friendly documentation
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                    <span>Developer-friendly documentation and code examples</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    Scalable domain management solutions
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                    <span>Scalable solutions that grow with your projects</span>
                   </li>
                 </ul>
               </div>
+            </div>
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-6 mt-8">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">For Everyone</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Whether you're a first-time domain buyer or a seasoned professional, Domain Toolkit is designed to be accessible and useful. Our free tools are available to everyone, and we're constantly adding new features based on user feedback. We believe that finding the perfect domain shouldn't require a technical background or a large budget - it should be simple, fast, and enjoyable.
+              </p>
             </div>
           </div>
 

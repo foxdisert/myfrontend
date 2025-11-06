@@ -523,6 +523,169 @@ const Home = () => {
           </div>
         </section>
 
+        {/* Helpful Tips Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Expert Tips for Domain Success
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Learn from industry experts and make informed decisions about your domain name
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-100 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl font-bold">1</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Keep It Short & Memorable</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Shorter domain names are easier to remember, type, and share. Aim for 6-14 characters and avoid hyphens or numbers that can confuse users.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 border border-green-100 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl font-bold">2</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Choose the Right TLD</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  While .com is the gold standard, don't overlook other TLDs like .io for tech companies or .co for startups. The key is choosing something that fits your brand.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-8 border border-purple-100 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl font-bold">3</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Make It Brandable</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Your domain should reflect your brand identity. Consider how it sounds when spoken aloud and whether it conveys the right message about your business.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-8 border border-orange-100 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl font-bold">4</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Check Availability Early</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Before falling in love with a domain name, check its availability across multiple TLDs. Also verify social media handles to ensure consistency across platforms.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-8 border border-indigo-100 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl font-bold">5</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Consider SEO Implications</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  While exact-match domains aren't as crucial as they once were, including relevant keywords can still help. However, prioritize brandability over keyword stuffing.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-8 border border-teal-100 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl font-bold">6</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Protect Your Investment</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Once you've chosen your domain, register variations and common misspellings. Enable domain lock, use strong passwords, and set up auto-renewal to protect your investment.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <Link
+                to="/guides"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                <Info className="h-5 w-5 mr-2" />
+                Explore Our Complete Guides
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Why Thousands Trust Domain Toolkit
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                We've helped businesses, developers, and entrepreneurs find the perfect domain names since our launch
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <Zap className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Lightning Fast Results</h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Our platform uses GoDaddy's powerful API to provide instant domain availability checks. No more waiting minutes for results - get answers in seconds.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Whether you're checking a single domain or researching multiple options, our optimized infrastructure ensures you get the information you need when you need it.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                    <Shield className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Accurate & Reliable</h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Powered by GoDaddy's comprehensive domain database, our results are accurate and up-to-date. We verify availability across hundreds of TLDs in real-time.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Our domain estimation tool uses advanced algorithms considering length, TLD popularity, keyword value, and market trends to provide reliable value estimates.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                    <Users className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">User-Focused Design</h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  We've designed every feature with real users in mind. From intuitive domain checking to smart suggestions, our tools make complex domain operations simple.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Save your favorite domains, track your searches, and manage your domain portfolio all in one place. Our dashboard gives you complete control over your domain research.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                    <Star className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Expert Resources</h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Beyond tools, we provide comprehensive guides and resources to help you make informed decisions. Learn from industry experts and stay updated with best practices.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Our blog covers everything from choosing the perfect domain to protecting your online identity. Access valuable insights that help you succeed in your domain journey.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-24 bg-gradient-mesh text-white relative overflow-hidden">
           {/* Background Elements */}
@@ -538,13 +701,16 @@ const Home = () => {
                 <span className="block text-white">Perfect Domain?</span>
               </h2>
               <p className="text-xl text-primary-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Join thousands of users who trust our toolkit for their domain management needs.
+                Join thousands of users who trust our toolkit for their domain management needs. Start your journey today with our free tools and expert resources.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up" style={{ animationDelay: '200ms' }}>
               <Link to="/register" className="btn-glass text-lg px-10 py-4 text-lg font-semibold hover:scale-105">
                 Get Started Free
                 <ArrowRight className="h-5 w-5 ml-2" />
+              </Link>
+              <Link to="/guides" className="btn-outline text-white border-white hover:bg-white hover:text-primary-700 text-lg px-10 py-4 text-lg font-semibold hover:scale-105">
+                Read Our Guides
               </Link>
               <Link to="/about" className="btn-outline text-white border-white hover:bg-white hover:text-primary-700 text-lg px-10 py-4 text-lg font-semibold hover:scale-105">
                 Learn More
