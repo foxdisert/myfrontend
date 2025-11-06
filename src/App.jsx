@@ -17,6 +17,7 @@ import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Guides from './pages/Guides'
+import GuideDetail from './pages/GuideDetail'
 import Sitemap from './components/Sitemap'
 import NotFound from './pages/NotFound'
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/guides" element={<Guides />} />
+          <Route path="/guides/:id" element={<GuideDetail />} />
           <Route path="/sitemap" element={<Sitemap />} />
           
           {/* Protected Routes */}
