@@ -50,6 +50,13 @@ Once approved, add this code to your `index.html` head section:
 ### **Step 3: Place Ad Units**
 Add ad units to strategic locations:
 
+#### **Current Live Placements**
+- **Home**: Immediately below the hero, mid-content, between features, footer
+- **Domain Checker**: Above results, mid-content, bottom of page
+- **Domain Suggestions**: After the hero header, below filters, bottom of page
+
+All placements currently use the same slot (`4370431362`). Replace each `adSlot` prop with the specific slot ID you configure in AdSense for better performance tracking.
+
 #### **Header Ad (Top of page)**
 ```html
 <ins class="adsbygoogle"
@@ -61,6 +68,19 @@ Add ad units to strategic locations:
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+```
+
+#### **React Component Helper**
+Instead of pasting raw HTML, you can use the reusable `AdSenseAd` component:
+
+```jsx
+import AdSenseAd from '../components/AdSenseAd'
+
+// Default values use your publisher ID and slot 4370431362
+<AdSenseAd />
+
+// Custom slot example
+<AdSenseAd adSlot="YOUR_AD_SLOT_ID" className="my-custom-wrapper" />
 ```
 
 #### **Sidebar Ad (Right side)**

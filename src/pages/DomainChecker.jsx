@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { Search, Globe, Clock, Star, CheckCircle, XCircle, AlertCircle, ArrowRight, Zap, TrendingUp, Heart } from 'lucide-react'
 import { domainAPI, userAPI } from '../services/api'
 import { useAuth } from '../contexts/AuthContext'
+import AdSenseAd from '../components/AdSenseAd'
 
 // Helper function to format prices consistently
 const formatPrice = (price) => {
@@ -234,6 +235,13 @@ const DomainChecker = () => {
           </div>
         </section>
 
+        {/* Google AdSense Ad (Checker - Above Results) */}
+        <section className="py-4 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AdSenseAd adSlot="4370431362" className="max-w-4xl mx-auto" />
+          </div>
+        </section>
+
         {/* Check Result Section */}
         {checkResult && (
           <section className="py-16 bg-white/50 backdrop-blur-sm">
@@ -387,6 +395,13 @@ const DomainChecker = () => {
                 )
               })}
             </div>
+          </div>
+        </section>
+
+        {/* Google AdSense Ad (Checker - Mid Content) */}
+        <section className="py-4 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AdSenseAd adSlot="4370431362" className="max-w-4xl mx-auto" />
           </div>
         </section>
 
@@ -591,6 +606,13 @@ const DomainChecker = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Google AdSense Ad (Checker - Bottom) */}
+        <section className="py-6 bg-gray-100">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AdSenseAd adSlot="4370431362" className="max-w-4xl mx-auto" />
           </div>
         </section>
       </div>

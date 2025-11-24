@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { Search, Filter, Star, ExternalLink, Eye, RefreshCw } from 'lucide-react';
 import { domainAPI } from '../services/api';
+import AdSenseAd from '../components/AdSenseAd';
 
 const DomainSuggestions = () => {
   const [suggestions, setSuggestions] = useState([]);
@@ -170,6 +171,11 @@ const DomainSuggestions = () => {
             </div>
           </div>
 
+          {/* Google AdSense Ad (Suggestions - Header) */}
+          <div className="py-4">
+            <AdSenseAd adSlot="4370431362" className="max-w-4xl mx-auto" />
+          </div>
+
           {/* Search and Filters */}
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -236,6 +242,11 @@ const DomainSuggestions = () => {
                 </button>
               )}
             </div>
+          </div>
+
+          {/* Google AdSense Ad (Suggestions - Filters) */}
+          <div className="py-4">
+            <AdSenseAd adSlot="4370431362" className="max-w-4xl mx-auto" />
           </div>
 
           {/* Results Count */}
@@ -375,6 +386,11 @@ const DomainSuggestions = () => {
               </button>
             </div>
           )}
+
+          {/* Google AdSense Ad (Suggestions - Bottom) */}
+          <div className="py-6">
+            <AdSenseAd adSlot="4370431362" className="max-w-4xl mx-auto" />
+          </div>
         </div>
       </div>
     </>

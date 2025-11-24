@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Search, Globe, BarChart3, Sparkles, CheckCircle, Clock, Star, ArrowRight, Zap, Shield, Users, Info } from 'lucide-react'
 import { domainAPI } from '../services/api'
 import { secureConsole } from '../utils/secureLogging'
-import EzoicAdPlacement from '../components/EzoicAdPlacement'
+import AdSenseAd from '../components/AdSenseAd'
 
 const Home = () => {
   const [domain, setDomain] = useState('')
@@ -244,11 +244,17 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Ezoic Ad Placement - Top Banner */}
-        {/* Replace 101 with your actual Ezoic placement ID from dashboard */}
+        {/* Google AdSense Ad (Home - Hero Below the Fold) */}
+        <section className="py-4 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AdSenseAd adSlot="4370431362" className="max-w-5xl mx-auto" />
+          </div>
+        </section>
+
+        {/* Google AdSense Ad (Home - Mid Content) */}
         <section className="py-4 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <EzoicAdPlacement placementId={101} className="text-center" />
+            <AdSenseAd adSlot="4370431362" className="max-w-4xl mx-auto" />
           </div>
         </section>
 
@@ -372,6 +378,13 @@ const Home = () => {
                 )
               })}
             </div>
+          </div>
+        </section>
+
+        {/* Google AdSense Ad (Home - Between Features) */}
+        <section className="py-4 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AdSenseAd adSlot="4370431362" className="max-w-4xl mx-auto" />
           </div>
         </section>
 
@@ -713,6 +726,13 @@ const Home = () => {
                 Learn More
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* Google AdSense Ad (Home - Footer) */}
+        <section className="py-6 bg-gray-900/10">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AdSenseAd adSlot="4370431362" className="max-w-4xl mx-auto" />
           </div>
         </section>
       </div>

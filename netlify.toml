@@ -2,12 +2,6 @@
   publish = "dist"
   command = "npm run build"
 
-# Ezoic ads.txt redirect - must come before catch-all rule
-[[redirects]]
-  from = "/ads.txt"
-  to = "https://srv.adstxtmanager.com/19390/mydntk.com"
-  status = 301
-
 # SPA catch-all redirect
 [[redirects]]
   from = "/*"
