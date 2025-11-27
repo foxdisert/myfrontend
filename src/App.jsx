@@ -20,6 +20,7 @@ import Guides from './pages/Guides'
 import GuideDetail from './pages/GuideDetail'
 import Sitemap from './components/Sitemap'
 import NotFound from './pages/NotFound'
+import Watch from './pages/Watch'
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/guides" element={<Guides />} />
           <Route path="/guides/:id" element={<GuideDetail />} />
           <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="/watch" element={<Watch />} />
           
           {/* Protected Routes */}
           <Route path="/dashboard" element={

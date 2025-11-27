@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import Header from './Header'
 import Footer from './Footer'
@@ -8,6 +9,8 @@ import SeoUpdater from './SeoUpdater'
 const Layout = ({ children }) => {
   const { loading } = useAuth()
   const [isLoading, setIsLoading] = useState(true)
+  const location = useLocation()
+  const isWatchPage = location.pathname.startsWith('/watch')
 
   useEffect(() => {
     // Set loading to false when auth context loading is complete
@@ -26,6 +29,16 @@ const Layout = ({ children }) => {
           </div>
           <p className="text-gray-600 font-medium">Loading Domain Toolkit...</p>
         </div>
+      </div>
+    )
+  }
+
+  if (isWatchPage) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-white">
+        <SeoUpdater />
+        {children}
+        <CookieConsent />
       </div>
     )
   }
