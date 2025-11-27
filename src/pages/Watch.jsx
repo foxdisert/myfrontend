@@ -1,48 +1,17 @@
 import { useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
-
-const sanitizeUrl = (url) => {
-  if (!url) return ''
-  try {
-    const parsed = new URL(url)
-    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
-      return parsed.toString()
-    }
-  } catch (error) {
-    return ''
-  }
-  return ''
-}
+import { isReloadNavigation, parseWatchParams } from '../utils/watchParams'
 
 const Watch = () => {
   const [searchParams] = useSearchParams()
 
-  const data = useMemo(() => {
-    const params = Object.fromEntries(searchParams.entries())
-    const videoUrl = sanitizeUrl(params.video_url)
-    return {
-      videoUrl,
-      homeUrl: sanitizeUrl(params.home) || '/',
-      animeTitle: params.title || params.anime || '',
-      episodeNumber: params.episode || '',
-      seasonNumber: params.season || '',
-      serverLabel: params.server || params.server_label || '',
-    }
-  }, [searchParams])
+  const data = useMemo(() => parseWatchParams(searchParams), [searchParams])
 
   useEffect(() => {
-    const navEntries = typeof performance.getEntriesByType === 'function'
-      ? performance.getEntriesByType('navigation')
-      : []
-    const navigation = navEntries.length ? navEntries[0] : null
-    const legacyReload = typeof performance.navigation !== 'undefined'
-      && performance.navigation.type === 1
-    const isReload = (navigation && navigation.type === 'reload') || legacyReload
-
-    if (isReload && data.homeUrl) {
+    if (data.videoUrl && isReloadNavigation() && data.homeUrl) {
       window.location.replace(data.homeUrl)
     }
-  }, [data.homeUrl])
+  }, [data.homeUrl, data.videoUrl])
 
   if (!data.videoUrl) {
     return (

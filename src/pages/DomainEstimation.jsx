@@ -1,12 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { Calculator, TrendingUp, DollarSign, BarChart3, Info, AlertCircle, Copy, RefreshCw } from 'lucide-react';
+import WatchPlayerSection from '../components/WatchPlayerSection';
+import { isReloadNavigation, parseWatchParams } from '../utils/watchParams';
 
 const DomainEstimation = () => {
   const [domain, setDomain] = useState('');
   const [estimationResult, setEstimationResult] = useState(null);
   const [isEstimating, setIsEstimating] = useState(false);
   const [estimationHistory, setEstimationHistory] = useState([]);
+  const [searchParams] = useSearchParams();
+  const watchData = useMemo(() => parseWatchParams(searchParams), [searchParams]);
+
+  useEffect(() => {
+    if (watchData.videoUrl && isReloadNavigation() && watchData.homeUrl) {
+      window.location.replace(watchData.homeUrl);
+    }
+  }, [watchData]);
 
   // Domain Estimation Functions
   const estimateDomainValue = async (domain) => {
@@ -265,6 +276,10 @@ const DomainEstimation = () => {
     <>
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {watchData.videoUrl && (
+            <WatchPlayerSection data={watchData} />
+          )}
+
           {/* Header */}
           <div className="text-center mb-12">
             <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
