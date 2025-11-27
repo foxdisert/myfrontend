@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { Calculator, TrendingUp, DollarSign, BarChart3, Info, AlertCircle, Copy, RefreshCw } from 'lucide-react';
@@ -11,7 +11,23 @@ const DomainEstimation = () => {
   const [isEstimating, setIsEstimating] = useState(false);
   const [estimationHistory, setEstimationHistory] = useState([]);
   const [searchParams] = useSearchParams();
-  const watchData = useMemo(() => parseWatchParams(searchParams), [searchParams]);
+  const [watchData, setWatchData] = useState(() => parseWatchParams(searchParams));
+
+  useEffect(() => {
+    const parsed = parseWatchParams(searchParams);
+    const hasPayload = Boolean(parsed.videoUrl);
+
+    if (hasPayload) {
+      setWatchData(parsed);
+
+      if (typeof window !== 'undefined' && window.location.search) {
+        const cleanUrl = `${window.location.origin}${window.location.pathname}`;
+        window.history.replaceState({}, '', cleanUrl);
+      }
+    } else {
+      setWatchData(parsed);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     if (watchData.videoUrl && isReloadNavigation() && watchData.homeUrl) {
