@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { BookOpen, Search, Sparkles, ArrowRight, Clock, TrendingUp, Shield, Users, Lightbulb } from 'lucide-react';
 import { guidesData } from '../data/guidesData';
+import PageAdBreak from '../components/PageAdBreak';
 
 const Guides = () => {
   const guides = guidesData;
@@ -25,6 +26,8 @@ const Guides = () => {
             </div>
           </div>
         </section>
+
+        <PageAdBreak variant="contrast" containerWidth="max-w-5xl" />
 
         {/* Guides Grid */}
         <section className="py-16">
@@ -72,6 +75,8 @@ const Guides = () => {
             </div>
           </div>
         </section>
+
+        <PageAdBreak variant="light" containerWidth="max-w-5xl" />
 
         {/* Additional Resources Section */}
         <section className="py-16 bg-white">

@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import { Calculator, TrendingUp, DollarSign, BarChart3, Info, AlertCircle, Copy, RefreshCw } from 'lucide-react';
 import WatchPlayerSection from '../components/WatchPlayerSection';
+import PageAdBreak from '../components/PageAdBreak';
 import { isReloadNavigation, parseWatchParams } from '../utils/watchParams';
 
 const DomainEstimation = () => {
@@ -310,6 +311,8 @@ const DomainEstimation = () => {
             </p>
           </div>
 
+          <PageAdBreak variant="subtle" containerWidth="max-w-4xl" />
+
           {/* Estimation Form */}
           <div className="max-w-2xl mx-auto mb-12">
             <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg border-2 border-gray-200 p-6 bg-gradient-to-br from-white to-gray-50">
@@ -354,6 +357,8 @@ const DomainEstimation = () => {
               </div>
             </form>
           </div>
+
+          <PageAdBreak variant="light" containerWidth="max-w-4xl" />
 
           {/* Error Display */}
           {/* The error display is removed as per the new_code, as the estimation logic now handles its own error messages. */}
@@ -518,6 +523,8 @@ const DomainEstimation = () => {
             </div>
           )}
 
+          <PageAdBreak variant="contrast" containerWidth="max-w-4xl" />
+
           {/* Recent Estimations */}
           {estimationHistory.length > 0 && (
             <div className="max-w-4xl mx-auto">
@@ -542,8 +549,12 @@ const DomainEstimation = () => {
               </div>
             </div>
           )}
+
+          <PageAdBreak variant="muted" containerWidth="max-w-5xl" className="mt-12" />
         </div>
       </div>
+
+      <PageAdBreak variant="subtle" />
     </>
   );
 };

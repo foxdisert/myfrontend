@@ -5,6 +5,8 @@ import Header from './Header'
 import Footer from './Footer'
 import CookieConsent from './CookieConsent'
 import SeoUpdater from './SeoUpdater'
+import PageAdBreak from './PageAdBreak'
+import AntiAdblockOverlay from './AntiAdblockOverlay'
 
 const Layout = ({ children }) => {
   const { loading } = useAuth()
@@ -39,6 +41,7 @@ const Layout = ({ children }) => {
         <SeoUpdater />
         {children}
         <CookieConsent />
+        <AntiAdblockOverlay />
       </div>
     )
   }
@@ -48,10 +51,15 @@ const Layout = ({ children }) => {
       <SeoUpdater />
       <Header />
       <main className="pt-16">
-        {children}
+        <div className="space-y-8">
+          <PageAdBreak variant="subtle" />
+          {children}
+          <PageAdBreak variant="muted" />
+        </div>
       </main>
       <Footer />
       <CookieConsent />
+      <AntiAdblockOverlay />
     </div>
   )
 }

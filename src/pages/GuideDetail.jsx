@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, Clock, BookOpen, Share2, CheckCircle } from 'lucide-react';
 import { guidesData } from '../data/guidesData';
+import PageAdBreak from '../components/PageAdBreak';
 
 const GuideDetail = () => {
   const { id } = useParams();
@@ -48,6 +49,8 @@ const GuideDetail = () => {
           </div>
         </div>
 
+        <PageAdBreak variant="light" containerWidth="max-w-4xl" />
+
         {/* Content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <article className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 md:p-12">
@@ -56,6 +59,8 @@ const GuideDetail = () => {
               dangerouslySetInnerHTML={{ __html: guide.content }}
             />
           </article>
+
+          <PageAdBreak variant="contrast" containerWidth="max-w-4xl" className="mt-8" />
 
           {/* CTA Section */}
           <div className="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-200">

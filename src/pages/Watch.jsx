@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { isReloadNavigation, parseWatchParams } from '../utils/watchParams'
+import PageAdBreak from '../components/PageAdBreak'
 
 const Watch = () => {
   const [searchParams] = useSearchParams()
@@ -50,12 +51,24 @@ const Watch = () => {
       </header>
 
       <main className="flex-1 w-full max-w-6xl mx-auto px-4 py-6 space-y-6">
+        <PageAdBreak
+          variant="transparent"
+          containerWidth="max-w-4xl"
+          adClassName="max-w-4xl"
+        />
+
         <div className="rounded-2xl border border-sky-900/60 bg-sky-900/10 p-4 text-sm text-slate-200 flex gap-3">
           <span className="text-sky-300 text-lg">⚠️</span>
           <p>
             Refreshing this page will take you back to the homepage. Use the 7Anime episode list to pick another server if needed.
           </p>
         </div>
+
+        <PageAdBreak
+          variant="transparent"
+          containerWidth="max-w-4xl"
+          adClassName="max-w-4xl"
+        />
 
         <section className="rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
           <div className="relative w-full pb-[56.25%] bg-black">
@@ -68,6 +81,12 @@ const Watch = () => {
             />
           </div>
         </section>
+
+        <PageAdBreak
+          variant="transparent"
+          containerWidth="max-w-4xl"
+          adClassName="max-w-4xl"
+        />
 
         {(data.animeTitle || data.episodeNumber || data.seasonNumber || data.serverLabel) && (
           <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 space-y-4">
@@ -99,6 +118,12 @@ const Watch = () => {
             </p>
           </section>
         )}
+
+        <PageAdBreak
+          variant="transparent"
+          containerWidth="max-w-4xl"
+          adClassName="max-w-4xl"
+        />
       </main>
     </div>
   )
