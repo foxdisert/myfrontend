@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { Search, Filter, Star, ExternalLink, Eye, RefreshCw } from 'lucide-react';
+import { Search, Filter, Star, ExternalLink, Eye, RefreshCw, AlertCircle, Sparkles } from 'lucide-react';
 import { domainAPI } from '../services/api';
 import AdSenseAd from '../components/AdSenseAd';
 
@@ -284,8 +284,8 @@ const DomainSuggestions = () => {
                       <div className="flex flex-col items-end space-y-1">
                         {/* Availability Status */}
                         <div className={`px-2 py-1 rounded-full text-xs font-medium ${suggestion.status === 'Available'
-                            ? 'text-green-600 bg-green-100'
-                            : 'text-red-600 bg-red-100'
+                          ? 'text-green-600 bg-green-100'
+                          : 'text-red-600 bg-red-100'
                           }`}>
                           {suggestion.status || 'Unknown'}
                         </div>
