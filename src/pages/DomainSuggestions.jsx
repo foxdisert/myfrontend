@@ -41,11 +41,11 @@ const DomainSuggestions = () => {
       setLoading(true);
       const response = await domainAPI.getPublicSuggestions(50); // Load more suggestions for better variety
       console.log('Suggestions API response:', response);
-      
+
       // Handle both response formats: direct array or wrapped in data property
       const suggestionsData = Array.isArray(response) ? response : (response?.data || []);
       console.log('Processed suggestions data:', suggestionsData);
-      
+
       // Ensure consistent ordering by sorting by score first, then by domain name
       const sortedSuggestions = suggestionsData.sort((a, b) => {
         // First sort by score (highest first)
@@ -55,7 +55,7 @@ const DomainSuggestions = () => {
         // Then sort alphabetically by domain name for consistency
         return a.domain.localeCompare(b.domain);
       });
-      
+
       setSuggestions(sortedSuggestions);
       console.log(`Loaded ${sortedSuggestions.length} suggestions with consistent ordering`);
     } catch (error) {
@@ -161,7 +161,7 @@ const DomainSuggestions = () => {
               </button>
             </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              Discover hand-picked domain names across various categories. 
+              Discover hand-picked domain names across various categories.
               Our curated collection includes business, tech, creative, and brandable domains.
             </p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-3xl mx-auto">
@@ -223,7 +223,7 @@ const DomainSuggestions = () => {
                 </select>
               </div>
             </div>
-            
+
             {/* Filter Actions */}
             <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200">
               <div className="text-sm text-gray-600">
@@ -283,11 +283,10 @@ const DomainSuggestions = () => {
                       </h3>
                       <div className="flex flex-col items-end space-y-1">
                         {/* Availability Status */}
-                        <div className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          suggestion.status === 'Available' 
-                            ? 'text-green-600 bg-green-100' 
+                        <div className={`px-2 py-1 rounded-full text-xs font-medium ${suggestion.status === 'Available'
+                            ? 'text-green-600 bg-green-100'
                             : 'text-red-600 bg-red-100'
-                        }`}>
+                          }`}>
                           {suggestion.status || 'Unknown'}
                         </div>
                         {/* Score */}
@@ -317,7 +316,7 @@ const DomainSuggestions = () => {
                           })()}
                         </div>
                       </div>
-                      
+
                       {/* Domain Length */}
                       <div className="bg-blue-50 p-3 rounded-lg">
                         <div className="text-xs text-blue-600 font-medium mb-1">Length</div>
@@ -329,14 +328,14 @@ const DomainSuggestions = () => {
 
                     {/* Additional Details */}
                     <div className="space-y-2 mb-4 text-sm text-gray-500">
-                      {suggestion.category && 
-                       suggestion.category !== 'CSV Upload' && 
-                       suggestion.category !== 'Generated' && (
-                        <div className="flex items-center">
-                          <span className="font-medium">Category:</span>
-                          <span className="ml-2 capitalize">{suggestion.category}</span>
-                        </div>
-                      )}
+                      {suggestion.category &&
+                        suggestion.category !== 'CSV Upload' &&
+                        suggestion.category !== 'Generated' && (
+                          <div className="flex items-center">
+                            <span className="font-medium">Category:</span>
+                            <span className="ml-2 capitalize">{suggestion.category}</span>
+                          </div>
+                        )}
                       {suggestion.extension && (
                         <div className="flex items-center">
                           <span className="font-medium">Extension:</span>
@@ -386,6 +385,187 @@ const DomainSuggestions = () => {
               </button>
             </div>
           )}
+
+          {/* Educational Content - Domain Naming & Branding Strategies */}
+          <section className="py-16 bg-gradient-to-br from-white to-gray-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+              {/* Domain Naming Strategies */}
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden mb-12">
+                <div className="bg-gradient-to-r from-indigo-600 to-purple-700 px-6 py-4">
+                  <h2 className="text-2xl font-bold text-white flex items-center">
+                    <Star className="h-6 w-6 mr-3" />
+                    Professional Domain Naming Strategies for Your Brand
+                  </h2>
+                </div>
+                <div className="p-6 space-y-6">
+                  <p className="text-gray-700 leading-relaxed">
+                    Choosing the perfect domain name is crucial for building a strong brand identity and online presence.
+                    A well-crafted domain name improves brand recognition, boosts SEO performance, and enhances your digital
+                    marketing efforts across social media platforms and search engines.
+                  </p>
+
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-lg border-2 border-blue-200 shadow-sm">
+                      <h3 className="font-bold text-lg text-blue-900 mb-3">🎯 Business Domains</h3>
+                      <ul className="space-y-2 text-blue-800 text-sm">
+                        <li>• Use industry-specific keywords for local SEO</li>
+                        <li>• Include location for service-based businesses</li>
+                        <li>• Keep it professional and pronunciation-friendly</li>
+                        <li>• Match your business name for brand consistency</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-lg border-2 border-purple-200 shadow-sm">
+                      <h3 className="font-bold text-lg text-purple-900 mb-3">💡 Startup Domains</h3>
+                      <ul className="space-y-2 text-purple-800 text-sm">
+                        <li>• Create unique, brandable names that stand out</li>
+                        <li>• Consider .io, .ai, or new TLDs for tech companies</li>
+                        <li>• Ensure social media handle availability</li>
+                        <li>• Make it memorable for word-of-mouth marketing</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-lg border-2 border-green-200 shadow-sm">
+                      <h3 className="font-bold text-lg text-green-900 mb-3">🚀 E-commerce Domains</h3>
+                      <ul className="space-y-2 text-green-800 text-sm">
+                        <li>• Describe products or niche for instant clarity</li>
+                        <li>• Stick with .com for maximum customer trust</li>
+                        <li>• Avoid numbers and hyphens for better recalls</li>
+                        <li>• Consider exact match domains for SEO benefits</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-400 p-4 rounded">
+                    <div className="flex">
+                      <AlertCircle className="h-5 w-5 text-orange-600 mr-3 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-orange-900 mb-1">Brand Identity Tip</h4>
+                        <p className="text-orange-800 text-sm">
+                          Your domain name is often the first impression customers have of your business. Invest time in creating
+                          a name that reflects your values, resonates with your target audience, and supports long-term brand
+                          building and content marketing strategies.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Domain Name Generators & Tools */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-xl border-2 border-blue-200 overflow-hidden">
+                <div className="bg-gradient-to-r from-blue-600 to-cyan-700 px-6 py-4">
+                  <h2 className="text-2xl font-bold text-white flex items-center">
+                    <Sparkles className="h-6 w-6 mr-3" />
+                    Essential Tools for Domain Research & Branding
+                  </h2>
+                </div>
+                <div className="p-6 space-y-6">
+                  <p className="text-gray-700 leading-relaxed">
+                    Leverage professional tools and resources to create the perfect domain name for your small business,
+                    online store, or digital marketing agency. These tools help with brainstorming, availability checking,
+                    and trademark verification.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-white p-5 rounded-lg border-2 border-blue-200 shadow-sm">
+                      <h3 className="font-bold text-lg text-gray-900 mb-4">Domain Research Tools</h3>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <div>
+                            <strong className="text-gray-900">NameMesh:</strong>
+                            <span className="text-gray-700"> Generate creative domain combinations with SEO keywords</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <div>
+                            <strong className="text-gray-900">LeanDomainSearch:</strong>
+                            <span className="text-gray-700"> Find available .com domains instantly for your business</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <div>
+                            <strong className="text-gray-900">Domainr:</strong>
+                            <span className="text-gray-700"> Discover creative domain hacks and new TLD options</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <div>
+                            <strong className="text-gray-900">USPTO Trademark Search:</strong>
+                            <span className="text-gray-700"> Verify trademark availability before registration</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white p-5 rounded-lg border-2 border-purple-200 shadow-sm">
+                      <h3 className="font-bold text-lg text-gray-900 mb-4">Branding & Marketing Resources</h3>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <div>
+                            <strong className="text-gray-900">Logo Makers:</strong>
+                            <span className="text-gray-700"> Canva, Looka, and Tailor Brands for professional logos</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <div>
+                            <strong className="text-gray-900">Social Media Checker:</strong>
+                            <span className="text-gray-700"> Namechk and KnowEm for username availability</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <div>
+                            <strong className="text-gray-900">SEO Analysis:</strong>
+                            <span className="text-gray-700"> Ahrefs and SEMrush for keyword research and competition</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <div>
+                            <strong className="text-gray-900">Business Plan Templates:</strong>
+                            <span className="text-gray-700"> LivePlan and Bizplan for startup planning</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white p-5 rounded-lg border-2 border-green-200">
+                    <h3 className="font-bold text-lg text-gray-900 mb-3">Complete Brand Launch Checklist:</h3>
+                    <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-700">
+                      <div>
+                        <p className="font-semibold text-green-800 mb-2">✓ Domain Registration:</p>
+                        <ul className="space-y-1 ml-4">
+                          <li>• Purchase primary .com domain</li>
+                          <li>• Secure alternative TLDs (.net, .org)</li>
+                          <li>• Enable domain privacy protection</li>
+                          <li>• Set up professional email hosting</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-blue-800 mb-2">✓ Brand Development:</p>
+                        <ul className="space-y-1 ml-4">
+                          <li>• Design professional logo and color scheme</li>
+                          <li>• Secure social media usernames</li>
+                          <li>• Create brand style guide and guidelines</li>
+                          <li>• Register business name and trademarks</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
 
           {/* Google AdSense Ad (Suggestions - Bottom) */}
           <div className="py-6">

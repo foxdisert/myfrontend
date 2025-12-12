@@ -8,20 +8,20 @@ import AdSenseAd from '../components/AdSenseAd'
 // Helper function to format prices consistently
 const formatPrice = (price) => {
   if (price === null || price === undefined) return '0.00';
-  
+
   // Convert to number if it's a string
   const numPrice = typeof price === 'string' ? parseFloat(price) : price;
-  
+
   // Check if it's a valid number
   if (isNaN(numPrice)) return '0.00';
-  
+
   // If the price is very large (like 106900), it might be in cents
   // But based on the user's feedback, 106900 should actually be $10.69
   // So we need to divide by 10000 instead of 100
   if (numPrice > 1000) {
     return (numPrice / 10000).toFixed(2);
   }
-  
+
   // Otherwise, just format to 2 decimal places
   return numPrice.toFixed(2);
 };
@@ -128,7 +128,7 @@ const DomainChecker = () => {
     try {
       const result = await domainAPI.checkAvailability(domain.trim())
       setCheckResult(result)
-      
+
       // Save to user's account if logged in
       if (user) {
         try {
@@ -144,7 +144,7 @@ const DomainChecker = () => {
           console.error('Failed to save domain check:', error)
         }
       }
-      
+
       // Add to recent checks
       setRecentChecks(prev => [result, ...prev.slice(0, 9)])
     } catch (error) {
@@ -193,11 +193,11 @@ const DomainChecker = () => {
                 <span className="block text-white">Availability Checker</span>
               </h1>
               <p className="text-xl text-primary-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Instantly check if your desired domain is available for registration. 
+                Instantly check if your desired domain is available for registration.
                 Get real-time results, pricing, and registration options.
               </p>
             </div>
-            
+
             {/* Domain Checker Form */}
             <div className="max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: '200ms' }}>
               <form onSubmit={handleDomainCheck} className="flex flex-col sm:flex-row gap-4">
@@ -258,20 +258,19 @@ const DomainChecker = () => {
                     </div>
                   ) : (
                     <div className="space-y-6">
-                                        <div className={`w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 ${
-                    checkResult.available ? 'bg-green-500/20' : 'bg-red-500/20'
-                  }`}>
-                    {checkResult.available ? (
-                      <CheckCircle className="h-10 w-10 text-green-500" />
-                    ) : (
-                      <XCircle className="h-10 w-10 text-red-500" />
-                    )}
-                  </div>
-                      
+                      <div className={`w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 ${checkResult.available ? 'bg-green-500/20' : 'bg-red-500/20'
+                        }`}>
+                        {checkResult.available ? (
+                          <CheckCircle className="h-10 w-10 text-green-500" />
+                        ) : (
+                          <XCircle className="h-10 w-10 text-red-500" />
+                        )}
+                      </div>
+
                       <h2 className="text-3xl font-bold text-gray-900 mb-2">
                         {checkResult.domain}
                       </h2>
-                      
+
                       <div className="inline-flex items-center px-6 py-3 rounded-full text-lg font-semibold mb-6">
                         {checkResult.available ? (
                           <span className="badge-success text-lg px-6 py-3">
@@ -335,7 +334,7 @@ const DomainChecker = () => {
                               <span>Add to Favorites</span>
                             </button>
                           )}
-                          
+
                           {checkResult.available && (
                             <button className="btn-primary text-lg px-6 py-3 font-semibold hover:scale-105">
                               Register This Domain
@@ -344,7 +343,7 @@ const DomainChecker = () => {
                           )}
                         </div>
                       )}
-                      
+
                       {!user && (
                         <div className="mt-6">
                           <p className="text-gray-600 mb-4">Sign in to save domains to favorites and track your checks!</p>
@@ -381,8 +380,8 @@ const DomainChecker = () => {
               {tips.map((tip, index) => {
                 const Icon = tip.icon
                 return (
-                  <div 
-                    key={tip.title} 
+                  <div
+                    key={tip.title}
                     className="card text-center animate-fade-in hover-lift"
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
@@ -420,8 +419,8 @@ const DomainChecker = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {recentChecks.map((check, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="card animate-fade-in hover-lift"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -433,7 +432,7 @@ const DomainChecker = () => {
                       {check.available ? 'Available' : 'Taken'}
                     </span>
                   </div>
-                  
+
                   {check.available && check.price && (
                     <div className="mb-4 p-3 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl">
                       <div className="flex items-center justify-between">
@@ -444,7 +443,7 @@ const DomainChecker = () => {
                       </div>
                     </div>
                   )}
-                  
+
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <div className="flex items-center space-x-2">
                       <Clock className="h-4 w-4" />
@@ -492,8 +491,8 @@ const DomainChecker = () => {
               ) : favorites.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {favorites.map((favorite, index) => (
-                    <div 
-                      key={favorite.id} 
+                    <div
+                      key={favorite.id}
                       className="card animate-fade-in hover-lift"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
@@ -509,12 +508,12 @@ const DomainChecker = () => {
                           <Heart className="h-5 w-5 fill-current" />
                         </button>
                       </div>
-                      
+
                       <div className="text-sm text-gray-500 mb-4">
                         Added on {new Date(favorite.created_at).toLocaleDateString()}
                       </div>
-                      
-                      <button 
+
+                      <button
                         onClick={() => {
                           setDomain(favorite.domain)
                           // Scroll to top to show the domain checker
@@ -555,8 +554,8 @@ const DomainChecker = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {suggestions.map((suggestion, index) => (
-                <div 
-                  key={suggestion.id} 
+                <div
+                  key={suggestion.id}
                   className="card animate-fade-in hover-lift"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
@@ -571,7 +570,7 @@ const DomainChecker = () => {
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl">
                       <span className="text-sm font-medium text-gray-600">Estimated Price:</span>
@@ -579,20 +578,19 @@ const DomainChecker = () => {
                         ${formatPrice(suggestion.estimation_price || suggestion.price || 0)}
                       </span>
                     </div>
-                    
+
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-500">Status:</span>
-                      <span className={`badge ${
-                        suggestion.status?.toLowerCase().includes('available') ? 'badge-success' :
-                        suggestion.status?.toLowerCase().includes('soon') ? 'badge-warning' :
-                        'badge-primary'
-                      }`}>
+                      <span className={`badge ${suggestion.status?.toLowerCase().includes('available') ? 'badge-success' :
+                          suggestion.status?.toLowerCase().includes('soon') ? 'badge-warning' :
+                            'badge-primary'
+                        }`}>
                         {suggestion.status}
                       </span>
                     </div>
                   </div>
 
-                  <button 
+                  <button
                     onClick={() => {
                       setDomain(suggestion.domain)
                       // Scroll to top to show the domain checker
@@ -606,6 +604,218 @@ const DomainChecker = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Educational Content - Domain Registration & Hosting */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Domain Registration Guide */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg border-2 border-blue-200 overflow-hidden mb-12">
+              <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-6 py-4">
+                <h2 className="text-2xl font-bold text-white flex items-center">
+                  <Globe className="h-6 w-6 mr-3" />
+                  Complete Domain Registration Guide 2024
+                </h2>
+              </div>
+              <div className="p-6 space-y-6">
+                <p className="text-gray-700 leading-relaxed">
+                  Registering a domain name is the first step in establishing your online presence. Whether you're launching
+                  an e-commerce website, business blog, or personal portfolio, choosing the right domain registrar and hosting
+                  provider is crucial for long-term success and search engine optimization.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-white p-5 rounded-lg border-2 border-blue-200 shadow-sm">
+                    <h3 className="font-bold text-lg text-blue-900 mb-3 flex items-center">
+                      <CheckCircle className="h-5 w-5 mr-2 text-blue-600" />
+                      Top Domain Registrars
+                    </h3>
+                    <ul className="space-y-2 text-blue-800">
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2">•</span>
+                        <span><strong>GoDaddy:</strong> World's largest domain registrar with 24/7 customer support</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2">•</span>
+                        <span><strong>Namecheap:</strong> Affordable pricing and free WHOIS privacy protection</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2">•</span>
+                        <span><strong>Google Domains:</strong> Simple interface with transparent pricing</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2">•</span>
+                        <span><strong>Cloudflare:</strong> Competitive pricing with built-in CDN and security</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white p-5 rounded-lg border-2 border-green-200 shadow-sm">
+                    <h3 className="font-bold text-lg text-green-900 mb-3 flex items-center">
+                      <Zap className="h-5 w-5 mr-2 text-green-600" />
+                      Registration Best Practices
+                    </h3>
+                    <ul className="space-y-2 text-green-800">
+                      <li className="flex items-start">
+                        <span className="text-green-600 mr-2">•</span>
+                        <span><strong>Enable Auto-Renewal:</strong> Prevent domain expiration and loss</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-green-600 mr-2">•</span>
+                        <span><strong>Privacy Protection:</strong> Hide personal information from WHOIS databases</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-green-600 mr-2">•</span>
+                        <span><strong>DNS Management:</strong> Configure DNS records for email and website hosting</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-green-600 mr-2">•</span>
+                        <span><strong>SSL Certificate:</strong> Secure your website with HTTPS encryption</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                  <div className="flex">
+                    <AlertCircle className="h-5 w-5 text-yellow-600 mr-3 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-yellow-900 mb-1">Pro Tip for Website Owners</h4>
+                      <p className="text-yellow-800 text-sm">
+                        Bundle your domain registration with web hosting services like Bluehost, SiteGround, or HostGator
+                        for better pricing. Most hosting providers offer free domain registration for the first year with
+                        their WordPress hosting or website builder packages.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Web Hosting Comparison */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden mb-12">
+              <div className="bg-gradient-to-r from-purple-600 to-pink-700 px-6 py-4">
+                <h2 className="text-2xl font-bold text-white">
+                  Web Hosting Providers Comparison
+                </h2>
+              </div>
+              <div className="p-6">
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  After registering your domain, you'll need reliable web hosting to launch your website. Compare top hosting
+                  providers for WordPress hosting, cloud hosting, VPS hosting, and dedicated servers.
+                </p>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="bg-gradient-to-r from-gray-100 to-gray-200">
+                        <th className="border border-gray-300 px-4 py-3 text-left font-bold text-gray-900">Hosting Provider</th>
+                        <th className="border border-gray-300 px-4 py-3 text-left font-bold text-gray-900">Starting Price</th>
+                        <th className="border border-gray-300 px-4 py-3 text-left font-bold text-gray-900">Best For</th>
+                        <th className="border border-gray-300 px-4 py-3 text-left font-bold text-gray-900">Key Features</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="hover:bg-blue-50 transition-colors">
+                        <td className="border border-gray-300 px-4 py-3 font-medium text-gray-900">Bluehost</td>
+                        <td className="border border-gray-300 px-4 py-3 text-green-700 font-bold">$2.95/mo</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700">WordPress Hosting</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700 text-sm">Free domain, SSL, WordPress optimized</td>
+                      </tr>
+                      <tr className="hover:bg-blue-50 transition-colors bg-gray-50">
+                        <td className="border border-gray-300 px-4 py-3 font-medium text-gray-900">SiteGround</td>
+                        <td className="border border-gray-300 px-4 py-3 text-green-700 font-bold">$3.99/mo</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700">E-commerce Sites</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700 text-sm">Managed WooCommerce, daily backups</td>
+                      </tr>
+                      <tr className="hover:bg-blue-50 transition-colors">
+                        <td className="border border-gray-300 px-4 py-3 font-medium text-gray-900">HostGator</td>
+                        <td className="border border-gray-300 px-4 py-3 text-green-700 font-bold">$2.75/mo</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700">Small Businesses</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700 text-sm">Unlimited bandwidth, website builder</td>
+                      </tr>
+                      <tr className="hover:bg-blue-50 transition-colors bg-gray-50">
+                        <td className="border border-gray-300 px-4 py-3 font-medium text-gray-900">A2 Hosting</td>
+                        <td className="border border-gray-300 px-4 py-3 text-green-700 font-bold">$2.99/mo</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700">High Performance</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700 text-sm">Turbo servers, SSD storage, CDN</td>
+                      </tr>
+                      <tr className="hover:bg-blue-50 transition-colors">
+                        <td className="border border-gray-300 px-4 py-3 font-medium text-gray-900">DreamHost</td>
+                        <td className="border border-gray-300 px-4 py-3 text-green-700 font-bold">$2.59/mo</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700">Developers</td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700 text-sm">SSH access, staging sites, Git</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-sm text-gray-600 mt-4 italic">
+                  *Promotional pricing shown. Prices may vary based on renewal terms and hosting package selected.
+                </p>
+              </div>
+            </div>
+
+            {/* Website Builder Options */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl shadow-lg border-2 border-green-200 overflow-hidden">
+              <div className="bg-gradient-to-r from-green-600 to-emerald-700 px-6 py-4">
+                <h2 className="text-2xl font-bold text-white flex items-center">
+                  <TrendingUp className="h-6 w-6 mr-3" />
+                  Website Builders vs. Traditional Hosting
+                </h2>
+              </div>
+              <div className="p-6 space-y-6">
+                <p className="text-gray-700 leading-relaxed">
+                  Choosing between a website builder and traditional web hosting depends on your technical skills, budget,
+                  and business requirements. Website builders like Wix, Squarespace, and Shopify offer all-in-one solutions
+                  with drag-and-drop interfaces, while traditional hosting gives you more control and flexibility.
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-white p-4 rounded-lg text-center border border-green-200 shadow-sm">
+                    <div className="text-3xl font-bold text-green-700 mb-2">Wix</div>
+                    <div className="text-sm text-green-800 font-medium mb-2">Best for Beginners</div>
+                    <div className="text-xs text-green-600">Drag-and-drop builder, 800+ templates, e-commerce</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg text-center border border-blue-200 shadow-sm">
+                    <div className="text-3xl font-bold text-blue-700 mb-2">Squarespace</div>
+                    <div className="text-sm text-blue-800 font-medium mb-2">Best for Creatives</div>
+                    <div className="text-xs text-blue-600">Beautiful templates, portfolio sites, blogging</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg text-center border border-purple-200 shadow-sm">
+                    <div className="text-3xl font-bold text-purple-700 mb-2">Shopify</div>
+                    <div className="text-sm text-purple-800 font-medium mb-2">Best for E-commerce</div>
+                    <div className="text-xs text-purple-600">Online stores, payment processing, inventory</div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-5 rounded-lg border-2 border-green-200">
+                  <h3 className="font-bold text-lg text-gray-900 mb-3">Choosing the Right Solution:</h3>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-2">✓ Choose Website Builder If:</h4>
+                      <ul className="space-y-1 text-gray-700">
+                        <li>• No coding or technical knowledge required</li>
+                        <li>• Need website launched quickly (hours not days)</li>
+                        <li>• Want all-in-one solution (hosting + builder)</li>
+                        <li>• Budget-friendly monthly plans ($10-$30/month)</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-blue-800 mb-2">✓ Choose Traditional Hosting If:</h4>
+                      <ul className="space-y-1 text-gray-700">
+                        <li>• Need full control over website code and design</li>
+                        <li>• Want to use WordPress, Joomla, or custom CMS</li>
+                        <li>• Require advanced SEO optimization capabilities</li>
+                        <li>• Planning complex integrations or custom development</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
